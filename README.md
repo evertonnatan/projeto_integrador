@@ -9,18 +9,22 @@ Aplicação web desenvolvida no âmbito da Disciplina Projeto Integrador I, da U
 - Disponibilizar uma agenda para que pacientes logrem êxito em realizar marcações de seus atendimentos; 
 - Permitir ao usuário a consulta de eventuais datas e horários disponíveis na agenda do profissional que lhe atenderá, bem como o cancelamento de consulta/atendimento que já tiver sido marcado. 
 
-## Para rodar este projeto locamente, siga os seguintes passos: 
+----
+
+
+
+## Para rodar este projeto localmente, siga os seguintes passos: 
 
 ### Configurando o ambiente para executar a aplicação web.
 
-1. Faça o download deste repositorio:
+1. Faça o download deste repositório:
 
 ```
-$ git clone 
+$ git clone https://github.com/evertonnatan/projeto_integrador.git
 
 ```
 
-### Criando um ambiente virtual e instalando as dependências: (disponiveis no arquivo  requirementes.txt):
+### Criando um ambiente virtual e instalando as dependências: (disponíveis no arquivo  requirementes.txt):
 
 2. Entre na pasta criada e inicie um ambiente virtual:
 ```
@@ -34,12 +38,17 @@ $ python3 -m venv venv
 $ source ./venv/bin/activate
 
 ```
-Apos ativado, instale as bibliotecas necessárias para executar o projeto:
+Após ativado, instale as bibliotecas necessárias para executar o projeto:
 ```
  (venv)$ pip install -r requirements.txt
 ```
-Para poder ter o primeiro acesso e pode configurar o aplicação vamos executar o comando 
-'migrate' para gerar o banco de dados padrão do Django(SQLite). E depois criar o superusuario:
+Para poder realizar o primeiro acesso e configurar a aplicação, é necessário executar o comando 
+`migrate`.  Assim, será gerado o banco de dados padrão do Django `(SQLite)`. E depois criar o superusuario:
+
+
+
+4. Execute: 
+
 ```
 (venv)$ ./manage.py migrate
 (venv)$ ./manage.py createsuperuser
@@ -49,15 +58,16 @@ Password:
 Password (again):
 ```
 
-Para iniciar o servidor depois deste passo você deve:
+Para iniciar o servidor depois deste passo você deve executar:
 ```
 (venv)$ ./manage.py runserver
 ```
 
-
-Para visualizar se tudo esta executando como esperado vamos acessar o seguinte endereço:
+Para visualizar se tudo esta executando como esperado, basta acessar o seguinte endereço:
 [http://localhost:8000/](http://localhost:8000/)
 
-Ou você pode ter acesso a admin do Django:
+Ou, para acessar a página de administrador do Django:
 [http://localhost:8000/admin](http://localhost:8000/admin)
+
+---
 
