@@ -58,12 +58,12 @@ Password:
 Password (again):
 ```
 
-Para iniciar o servidor depois deste passo você deve executar:
+5. Para iniciar o servidor, você deve executar:
 ```
 (venv)$ ./manage.py runserver
 ```
 
-Para visualizar se tudo esta executando como esperado, basta acessar o seguinte endereço:
+6. Para visualizar se tudo está executando como esperado, basta acessar o seguinte endereço em seu navegador padrão:
 [http://localhost:8000/](http://localhost:8000/)
 
 Ou, para acessar a página de administrador do Django:
