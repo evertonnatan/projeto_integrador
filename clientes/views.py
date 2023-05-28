@@ -66,7 +66,7 @@ class ConsultaUpdateView(LoginRequiredMixin, UpdateView):
     login_url = 'accounts:login'
     template_name = 'clientes/cadastro.html'
     fields = ['agenda']
-    success_url = reverse_lazy('medicos:Consulta_lista')
+    success_url = reverse_lazy('fisioterapeutas:Consulta_lista')
     
     def form_valid(self, form):
         form.instance.cliente = Cliente.objects.get(user=self.request.user)

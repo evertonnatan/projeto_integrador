@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     
     'accounts',
     'clientes',
-    'medicos',
+    'fisioterapeutas',
 ]
 
 MIDDLEWARE = [

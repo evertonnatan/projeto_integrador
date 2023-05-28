@@ -11,10 +11,10 @@ class Especialidade(models.Model):
     def __str__(self):
         return f'{self.nome}'
     
-class Medico(models.Model):
+class Fisioterapeuta(models.Model):
     nome = models.CharField(verbose_name="Nome", max_length=200)
     email = models.EmailField(verbose_name="Email")
-    crm = models.CharField(verbose_name="CRM", max_length=200)
+    crefito = models.CharField(verbose_name="CREFITO", max_length=200)
     phone_regex = RegexValidator(
     regex=r'^\+?1?\d{9,15}$',
     message="O número precisa estar neste formato: \
@@ -25,7 +25,7 @@ class Medico(models.Model):
                                 max_length=17, null=True, blank=True)
     especialidade = ForeignKey(Especialidade,
                                on_delete=models.CASCADE,
-                               related_name='medicos')
+                               related_name='fisioterapeutas')
     
     def __str__(self):
         return f'{self.nome}'
@@ -40,7 +40,7 @@ def validar_dia(value):
         raise ValidationError('Escolha um dia útil da semana.')
 
 class Agenda(models.Model):
-    medico = ForeignKey(Medico, on_delete=models.CASCADE, related_name='agenda')
+    fisioterapeuta = ForeignKey(Fisioterapeuta, on_delete=models.CASCADE, related_name='agenda')
     dia = models.DateField(help_text="Insira uma data para agenda", validators=[validar_dia])
     
     HORARIOS = (
@@ -49,8 +49,16 @@ class Agenda(models.Model):
         ("3", "09:00 ás 10:00"),
         ("4", "10:00 ás 11:00"),
         ("5", "11:00 ás 12:00"),
+        ("6", "12:00 ás 13:00"),
+        ("7", "13:00 ás 14:00"),
+        ("8", "14:00 ás 15:00"),
+        ("9", "15:00 ás 16:00"),
+        ("10", "16:00 ás 17:00"),
+        ("11", "17:00 ás 18:00"),
+        ("12", "18:00 ás 19:00"),
+        ("13", "19:00 ás 20:00"),
     )
-    horario = models.CharField(max_length=10, choices=HORARIOS)
+    horario = models.CharField(max_length=15, choices=HORARIOS)
     
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, 
@@ -61,4 +69,4 @@ class Agenda(models.Model):
         unique_together = ('horario', 'dia')
         
     def __str__(self):
-        return f'{self.dia.strftime("%b %d %Y")} - {self.get_horario_display()} - {self.medico}'
+        return f'{self.dia.strftime("%b %d %Y")} - {self.get_horario_display()} - {self.fisioterapeuta}'
