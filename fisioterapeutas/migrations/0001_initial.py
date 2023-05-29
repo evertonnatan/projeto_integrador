@@ -4,7 +4,7 @@ from django.conf import settings
 import django.core.validators
 from django.db import migrations, models
 import django.db.models.deletion
-import medicos.models
+import fisioterapeutas.models
 
 
 class Migration(migrations.Migration):
@@ -24,23 +24,23 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Medico',
+            name='Fisioterapeuta',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nome', models.CharField(max_length=200, verbose_name='Nome')),
                 ('email', models.EmailField(max_length=254, verbose_name='Email')),
-                ('crm', models.CharField(max_length=200, verbose_name='CRM')),
+                ('crefito', models.CharField(max_length=200, verbose_name='CREFITO')),
                 ('telefone', models.CharField(blank=True, max_length=17, null=True, validators=[django.core.validators.RegexValidator(message="O número precisa estar neste formato:                     '+99 99 9999-0000'.", regex='^\\+?1?\\d{9,15}$')], verbose_name='Telefone')),
-                ('especialidade', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='medicos', to='medicos.especialidade')),
+                ('especialidade', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='fisioterapeutas', to='fisioterapeutas.especialidade')),
             ],
         ),
         migrations.CreateModel(
             name='Agenda',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('dia', models.DateField(help_text='Insira uma data para agenda', validators=[medicos.models.validar_dia])),
-                ('horario', models.CharField(choices=[('1', '07:00 ás 08:00'), ('2', '08:00 ás 09:00'), ('3', '09:00 ás 10:00'), ('4', '10:00 ás 11:00'), ('5', '11:00 ás 12:00')], max_length=10)),
-                ('medico', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='agenda', to='medicos.medico')),
+                ('dia', models.DateField(help_text='Insira uma data para agenda', validators=[fisioterapeutas.models.validar_dia])),
+                ('horario', models.CharField(choices=[('1', '07:00 ás 08:00'), ('2', '08:00 ás 09:00'), ('3', '09:00 ás 10:00'), ('4', '10:00 ás 11:00'), ('5', '11:00 ás 12:00'), ('6', '12:00 ás 13:00'), ('7', '13:00 ás 14:00'), ('8', '14:00 ás 15:00'), ('9', '15:00 ás 16:00'), ('10', '16:00 ás 17:00'), ('11', '17:00 ás 18:00'), ('12', '18:00 ás 19:00'), ('13', '19:00 ás 20:00')], max_length=10)),
+                ('fisioterapeuta', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='agenda', to='fisioterapeutas.fisioterapeuta')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Usuário')),
             ],
             options={

@@ -1,11 +1,11 @@
 {% extends "accounts/index.html" %}
 
 {% block title %}
-    Medicos
+    Fisioterapeutas
 {% endblock %}
 
 {% block accounts_container %}
-<h2>Medicos</h2>
+<h2>Fisioterapeutas</h2>
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -19,7 +19,7 @@
                 E-mail
             </th>
             <th>
-                CRM 
+                CREFITO
             </th>
             <th>
                 Especialidade
@@ -30,25 +30,25 @@
         </tr>
     </thead>
     <tbody>
-        {% for medico in object_list %}
+        {% for fisioterapeuta in object_list %}
         <tr>
             <td>
-                <a href=""># {{ medico.pk }}</a>
+                <a href=""># {{ fisioterapeuta.pk }}</a>
             </td>
             <td>
-                {{ medico.nome }}
+                {{ fisioterapeuta.nome }}
             </td>
             <td>
-                {{ medico.email }}
+                {{ fisioterapeuta.email }}
             </td>
             <td>
-                {{ medico.crm }}
+                {{ fisioterapeuta.crefito }}
             </td>
             <td>
-                {{ medico.especialidade }}
+                {{ fisioterapeuta.especialidade }}
             </td>
             <td>
-                {{ medico.telefone }}
+                {{ fisioterapeuta.telefone }}
             </td>
         </tr>
         {% endfor %}

@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('medicos', '0001_initial'),
+        ('fisioterapeutas', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
             name='Consulta',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('agenda', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='consulta', to='medicos.agenda')),
+                ('agenda', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='consulta', to='fisioterapeutas.agenda')),
                 ('cliente', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='consulta', to='clientes.cliente')),
             ],
             options={

@@ -28,13 +28,13 @@
             </li>
             {% if user.is_staff or user.is_superuser %}
             <li>
-              <a href="{% url 'medicos:agendar_consulta'%}">Agendas</a>
+              <a href="{% url 'fisioterapeutas:agendar_consulta'%}">Agendas</a>
             </li>
             <li>
-              <a href="{% url 'medicos:medico_cadastro'%}">Médicos</a>
+              <a href="{% url 'fisioterapeutas:fisioterapeuta_cadastro'%}">Fisioterapeutas</a>
             </li>
             <li>
-              <a href="{% url 'medicos:especialidade_cadastro'%}">Especialidade</a>
+              <a href="{% url 'fisioterapeutas:especialidade_cadastro'%}">Especialidade</a>
             </li>
             {% endif %}
           </ul>
